@@ -56,19 +56,25 @@ public class MainActivity extends AppCompatActivity {
 
         // UI Initialization
         final Button buttonConnect = findViewById(R.id.buttonConnect);
+        final Button buttonHand = findViewById(R.id.buttonHand);
+
+
         final Toolbar toolbar = findViewById(R.id.toolbar);
         final ProgressBar progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
         final TextView textViewInfo = findViewById(R.id.textViewInfo);
+        //이름
         final Button buttonToggle = findViewById(R.id.buttonToggle);
-         final EditText editToggle = findViewById(R.id.editToggle);
+        final EditText editToggle = findViewById(R.id.editToggle);
         buttonToggle.setEnabled(false);
         final ImageView imageView = findViewById(R.id.imageView);
         imageView.setBackgroundColor(getResources().getColor(R.color.colorOff));
-
+        //나이
         final CheckBox agebox1Toggle = findViewById(R.id.agebox1);
         final CheckBox agebox2Toggle = findViewById(R.id.agebox2);
         final CheckBox agebox3Toggle = findViewById(R.id.agebox3);
+        //비상문구
+        final EditText editToggle2 = findViewById(R.id.editToggle2);
 
         imageView.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -149,6 +155,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        buttonHand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SignLanguageActivity.class));
+            }
+        });
+
         // Button to ON/OFF LED on Arduino Board
         /*buttonToggle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -175,9 +189,14 @@ public class MainActivity extends AppCompatActivity {
         buttonToggle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String cmdText = null;
+
                 String btnState = editToggle.getText().toString().toLowerCase();
-                cmdText=btnState + "  Age is:";
+                String emergency= editToggle2.getText().toString().toLowerCase();
+
+                String cmdText = "Name: "+ btnState;
+
+                cmdText += "Age:";
+
 
                 if(agebox1Toggle.isChecked()){
                     cmdText += "1~13";
@@ -189,7 +208,14 @@ public class MainActivity extends AppCompatActivity {
                     cmdText += "51~";
                 }
                 // Send command to Arduino board
+
+                cmdText+= "Emergency Command:";
+                cmdText+= emergency;
+                cmdText+="\n";
+
+
                 connectedThread.write(cmdText);
+
 
 
             }
