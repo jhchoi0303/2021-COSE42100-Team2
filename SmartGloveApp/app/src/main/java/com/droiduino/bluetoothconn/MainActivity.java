@@ -3,14 +3,18 @@ package com.droiduino.bluetoothconn;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -21,9 +25,12 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
+import android.net.Uri;
+
+
 
 
 import java.io.IOException;
@@ -62,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         final Toolbar toolbar = findViewById(R.id.toolbar);
         final ProgressBar progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
-        final TextView textViewInfo = findViewById(R.id.textViewInfo);
+        //final TextView textViewInfo = findViewById(R.id.textViewInfo);
         //이름
         final Button buttonToggle = findViewById(R.id.buttonToggle);
         final EditText editToggle = findViewById(R.id.editToggle);
@@ -130,7 +137,11 @@ public class MainActivity extends AppCompatActivity {
 
                     case MESSAGE_READ:
                         String arduinoMsg = msg.obj.toString(); // Read message from Arduino
-                        textViewInfo.setText(arduinoMsg);
+                        //textViewInfo.setText(arduinoMsg);
+
+                            callPhoneNumber();
+
+
                         break;
                 }
             }
@@ -141,10 +152,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Move to adapter list
-                Intent intent = new Intent(MainActivity.this, SelectDeviceActivity.class);
-                startActivity(intent);
+               Intent intent = new Intent(MainActivity.this, SelectDeviceActivity.class);
+               startActivity(intent);
+
+
+
+
             }
         });
+
+
+
 
 
        // buttonHand.setOnClickListener(new View.OnClickListener() {
@@ -187,9 +205,20 @@ public class MainActivity extends AppCompatActivity {
                 connectedThread.write(cmdText);
 
 
+
+
+
+
             }
         });
 
+    }
+    public void call(){
+        String tel = "119";
+
+        Uri number = Uri.parse("tel:" + tel);
+        Intent intent = new Intent(Intent.ACTION_CALL, number);
+        startActivity(intent);
     }
 
     @Override
@@ -357,4 +386,38 @@ public class MainActivity extends AppCompatActivity {
         a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(a);
     }
+
+
+    public void callPhoneNumber()
+    {
+        try
+        {
+            if(Build.VERSION.SDK_INT > 22)
+            {
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+
+                    ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CALL_PHONE}, 101);
+
+                    return;
+                }
+
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:" + "119"));
+                startActivity(callIntent);
+
+            }
+            else {
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:" + "119"));
+                startActivity(callIntent);
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+
 }

@@ -27,7 +27,7 @@
         android:id="@+id/emergency"
         android:layout_width="158dp"
         android:layout_height="67dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="36dp"
         android:layout_marginEnd="48dp"
         android:fontFamily="@font/squarefont"
         android:gravity="center"
@@ -35,23 +35,23 @@
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.602"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/agebox1"
         app:layout_constraintTop_toBottomOf="@+id/editToggle" />
 
     <EditText
         android:id="@+id/editToggle2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="176dp"
+        android:layout_height="52dp"
         android:layout_marginBottom="192dp"
         android:layout_weight="1"
         android:ems="10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.89"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.693"
+        app:layout_constraintStart_toEndOf="@+id/agebox2"
         app:layout_constraintTop_toBottomOf="@+id/emergency"
-        app:layout_constraintVertical_bias="0.015"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.Toolbar
@@ -90,14 +90,15 @@
     <Button
         android:id="@+id/buttonConnect"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="360dp"
+        android:layout_width="58dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="36dp"
         android:fontFamily="@font/squarefont"
-        android:text="Connect"
+        android:textSize="10dp"
+        android:text="Con"
         app:backgroundTint="#FD6F23"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
     <Button
@@ -118,10 +119,10 @@
 
     <EditText
         android:id="@+id/editToggle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
-        android:layout_marginBottom="452dp"
+        android:layout_width="134dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="444dp"
         android:layout_weight="1"
         android:ems="10"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -132,15 +133,17 @@
         android:id="@+id/nameinfo"
         android:layout_width="123dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="452dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="12dp"
         android:fontFamily="@font/squarefont"
         android:gravity="center"
         android:text="Name"
         android:textAlignment="center"
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ageinfo"
         app:layout_constraintEnd_toStartOf="@+id/editToggle"
-        app:layout_constraintHorizontal_bias="0.788"
+
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
@@ -184,18 +187,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/agebox2"
         app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textViewInfo"
-        android:layout_width="225dp"
-        android:layout_height="29dp"
-        android:fontFamily="@font/squarefont"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.585"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.892" />
 
     <TextView
         android:fontFamily="@font/squarefont"
