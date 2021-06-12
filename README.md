@@ -2,8 +2,7 @@
 
 * #### COSE42100- EMBEDDED SYSTEMS, TEAM2 final project
 
-<img src="https://github.com/jhchoi0303/2021-COSE42100-Team2/blob/arduino.jpg"  width="400" height="300">
-
+<img src="https://github.com/jhchoi0303/2021-COSE42100-Team2/blob/main/SmartGloveApp/app/src/main/ic_launcher-playstore.png"  width="300" height="300">
 
 
 
@@ -23,7 +22,8 @@ Just put on the Smart Gloves and make a bluetooth connection with the android ap
 ## Features
 
 * ### Arduino code
-<img src="https://github.com/jhchoi0303/2021-COSE42100-Team2/blob/main/SmartGloveApp/app/src/main/ic_launcher-playstore.png"  width="300" height="300">
+
+<img src="https://github.com/jhchoi0303/2021-COSE42100-Team2/blob/main/arduino.jpg"  width="400" height="300">
 
     ### 1. Overall feature (main.ino, one glove)
     1. Senses high/low temporature 
