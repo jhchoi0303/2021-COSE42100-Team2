@@ -46,7 +46,5 @@ Just put on the Smart Gloves and make a bluetooth connection with the android ap
 
     ### Screenshots
 
-<img src="https://github.com/jhchoi0303/2021-COSE42100-Team2/blob/main/screenshot1.png" width="300" height="600" style="float:left; padding-right:30px"/>
-
-<img src="https://github.com/jhchoi0303/2021-COSE42100-Team2/blob/main/screenshot2.png" width="300" height="600"/>
+<img src="https://github.com/jhchoi0303/2021-COSE42100-Team2/blob/main/screenshot1.png" width="300" height="600" style="float:left; padding-right:10px"/><img src="https://github.com/jhchoi0303/2021-COSE42100-Team2/blob/main/screenshot2.png" width="300" height="600"/>
 
