@@ -40,7 +40,7 @@ Just put on the Smart Gloves and make a bluetooth connection with the android ap
 
 * ### Android Application
 
-    #### Submit user info to arduino using bluetooth (uses "age" info to decide the range of normal heartbeat)
+    #### Submit user info to arduino using bluetooth (uses "age" info to decide the range of normal heartbeat, use "emergency comand" info to print out lcd monitor)
 
 
 
