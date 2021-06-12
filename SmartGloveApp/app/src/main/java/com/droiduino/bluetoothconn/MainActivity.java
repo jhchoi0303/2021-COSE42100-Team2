@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         // UI Initialization
         final Button buttonConnect = findViewById(R.id.buttonConnect);
-        final Button buttonHand = findViewById(R.id.buttonHand);
+        //final Button buttonHand = findViewById(R.id.buttonHand);
 
 
         final Toolbar toolbar = findViewById(R.id.toolbar);
@@ -130,16 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
                     case MESSAGE_READ:
                         String arduinoMsg = msg.obj.toString(); // Read message from Arduino
-                        switch (arduinoMsg.toLowerCase()){
-                            case "led is turned on":
-                                imageView.setBackgroundColor(getResources().getColor(R.color.colorOn));
-                                textViewInfo.setText("Arduino Message : " + arduinoMsg);
-                                break;
-                            case "led is turned off":
-                                imageView.setBackgroundColor(getResources().getColor(R.color.colorOff));
-                                textViewInfo.setText("Arduino Message : " + arduinoMsg);
-                                break;
-                        }
+                        textViewInfo.setText(arduinoMsg);
                         break;
                 }
             }
@@ -156,42 +147,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        buttonHand.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SignLanguageActivity.class));
-            }
-        });
+       // buttonHand.setOnClickListener(new View.OnClickListener() {
+          //  @Override
+          //  public void onClick(View v) {
+           //     startActivity(new Intent(MainActivity.this, SignLanguageActivity.class));
+           // }
+       // });
 
-        // Button to ON/OFF LED on Arduino Board
-        /*buttonToggle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String cmdText = null;
-                String btnState = buttonToggle.getText().toString().toLowerCase();
-                switch (btnState){
-                    case "turn on":
-                        buttonToggle.setText("Turn Off");
-                        // Command to turn on LED on Arduino. Must match with the command in Arduino code
-                        cmdText = "<turn on>";
-                        break;
-                    case "turn off":
-                        buttonToggle.setText("Turn On");
-                        // Command to turn off LED on Arduino. Must match with the command in Arduino code
-                        cmdText = "<turn off>";
-                        break;
-                }
-                // Send command to Arduino board
-                connectedThread.write(cmdText);
-            }
-        });*/
+
 
         buttonToggle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String btnState = editToggle.getText().toString().toLowerCase();
-                String emergency= editToggle2.getText().toString().toLowerCase();
+                String btnState = editToggle.getText().toString();
+                String emergency= editToggle2.getText().toString();
 
                 String cmdText = "Name: "+ btnState;
 
@@ -215,7 +185,6 @@ public class MainActivity extends AppCompatActivity {
 
 
                 connectedThread.write(cmdText);
-
 
 
             }

@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:fontFamily="@font/squarefont"
             android:id="@+id/textViewDeviceName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,12 +26,14 @@
             android:textStyle="bold" />
 
         <TextView
+            android:fontFamily="@font/squarefont"
             android:id="@+id/textViewDeviceAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
 
     <View
+        android:fontFamily="@font/squarefont"
         android:id="@+id/divider"
         android:layout_width="0dp"
         android:layout_height="1dp"
