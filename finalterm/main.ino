@@ -62,8 +62,9 @@ char cbuffer[BUFF_SIZE];
 
 
 int ind1, ind2,  ind3;
-String user, emergency;
-String age="0";
+String user;
+String age="";
+String emergency="";
 
 
 int androidCmd; 
@@ -110,14 +111,14 @@ void loop()
     
   if(!inputString.equals("")){
 
-      //android app에서 inputString은 "Name: 이태경Age:1~13Emergency Command:살려주세요"와 같은 형태로 들어온다. 
+      //android app에서 inputString은 "Name: 이태경Age:1~13Emergency Command:helpme"와 같은 형태로 들어온다. 
       int lengthofstring = inputString.length();
       ind1 = inputString.indexOf(':'); 
       ind2 = inputString.indexOf(':', ind1+1 );
       ind3 = inputString.indexOf(':', ind2+1 );
 
 
-      //위에 있는 inputString을 쪼개서 이태경은 user에, 1~13은 age에,살려주세요는 emergency로 들어간다.
+      //위에 있는 inputString을 쪼개서 이태경은 user에, 1~13은 age에,helpme는 emergency로 들어간다.
       user = inputString.substring(ind1+2, ind2-3); 
       age = inputString.substring(ind2+1, ind3-18);  
       emergency = inputString.substring(ind3+1, lengthofstring-1);
@@ -190,12 +191,20 @@ void loop()
       delay(200); 
     }
     else if (digitalRead(SWITCH3) == LOW){
-      lcd.setCursor(0, 0);
-      lcd.print("I'm Speechless disorder, Help me!");
-      delay(200); 
-      lcd.setCursor(0, 1);
-      lcd.print("Help me!");
-      delay(200); 
+      //만약 emergency command 값이 지정되었을 때(bluetooth로 정보가 수신되었을때) 사용자가 앱을 통해 입력한 emergency command를 출력
+      if(!emergency.equals("")){
+        lcd.setCursor(0, 0);
+        lcd.print(emergency);
+        delay(200);  
+        }
+      else{
+        lcd.setCursor(0, 0);
+        lcd.print("I'm Speechless disorder, Help me!");
+        delay(200); 
+        lcd.setCursor(0, 1);
+        lcd.print("Help me!");
+        delay(200); 
+      }
     }
     delay(200);
     lcd.clear(); 
@@ -217,7 +226,7 @@ int myBPM = pulseSensor.getBeatsPerMinute();
   
                       
 if (pulseSensor.sawStartOfBeat()) {   
-   if(age=="1~13"){ //어린이
+   if(age.equals("1~13")){ //어린이
     if(myBPM>130 || myBPM <60 ){
     for (int i = 0; i < 1; i++) {
       tone (piezo2, notes[ i ], tempo); //LED 깜빡 깜빡
@@ -229,7 +238,7 @@ if (pulseSensor.sawStartOfBeat()) {
      noTone(piezo2);
     }
 }
-  else if(age=="14~50"){ //성인
+  else if(age.equals("14~50")){ //성인
     if(myBPM>105 || myBPM<55 ){
     for (int i = 0; i < 1; i++) {
       tone (piezo2, notes[ i ], tempo); //LED 깜빡 깜빡
@@ -241,7 +250,7 @@ if (pulseSensor.sawStartOfBeat()) {
      noTone(piezo2);
     }
 }
-  else if(age=="51~"){ //노인
+  else if(age.equals("51~")){ //노인
     if(myBPM>80 || myBPM<50 ){
     for (int i = 0; i < 1; i++) {
       tone (piezo2, notes[ i ], tempo); //LED 깜빡 깜빡
@@ -254,7 +263,7 @@ if (pulseSensor.sawStartOfBeat()) {
 }
 }
   
-     else{   //age값이 없을때, 평균 수치
+     else{   //만약 age값이 지정되지 않았을 때, bluetooth로 정보가 제대로 수신되지 않았을때, 평균 수치
   if(myBPM>130 || myBPM<55 ){
     for (int i = 0; i < 20; i++) {
       tone (piezo2, notes[ i ], tempo); 
