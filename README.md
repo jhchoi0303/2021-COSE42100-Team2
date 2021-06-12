@@ -1,10 +1,10 @@
 # Smart Gloves - Arduino, Android App
 
-* #### COSE42100,  TEAM2
+* #### COSE42100- EMBEDDED SYSTEMS, TEAM2 final project
 
 <img src="https://github.com/jhchoi0303/2021-COSE42100-Team2/blob/main/SmartGloveApp/app/src/main/ic_launcher-playstore.png"  width="300" height="300">
 
-Smart Gloves
+
 
 
 
@@ -24,25 +24,27 @@ Just put on the Smart Gloves and make a bluetooth connection with the android ap
 
 * ### Arduino code
 
-    ### 1. Overall feature (Arduino code 1, one glove)
+    ### 1. Overall feature (main.ino, one glove)
     1. Senses high/low temporature 
     2. Senses close objects
-    3. Prints out emergency command on the LCD monitor
+    3. Prints out 3 types of emergency command on the LCD monitor
     4. Senses the heartbeat of the user
     5. Senses dark places
+    6. Bluetooth connection
     
-    ### 2. Sign Language feature (Arduino code 2 & Arduino code 3, the other glove)
+    ### 2. Sign Language feature (flexsenor_read_and_send.ino & process_sign_language_speech_recognize.ino , the other glove)
     1. Sign Language (Recognize sign language and print on LCD monitor)
     2. Voice recognition
 
 
 
-
-
 * ### Android Application
 
-    #### 1. Submit user info to arduino using bluetooth
-    #### 2. Receive sign language info from arduino using bluetooth
+    #### Submit user info to arduino using bluetooth (uses "age" info to decide the range of normal heartbeat)
 
 
-    #### Screen shots
+
+    #### Screenshots
+
+<img src="https://github.com/jhchoi0303/2021-COSE42100-Team2/screenshot1.png"  width="300" height="600">
+<img src="https://github.com/jhchoi0303/2021-COSE42100-Team2/screenshot2.png"  width="300" height="600">
