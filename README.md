@@ -20,10 +20,9 @@ Just put on the Smart Gloves and make a bluetooth connection with the android ap
 
 
 ## Features
+<img src="https://github.com/jhchoi0303/2021-COSE42100-Team2/blob/main/arduino.jpg"  width="400" height="300">
 
 * ### Arduino code
-
-<img src="https://github.com/jhchoi0303/2021-COSE42100-Team2/blob/main/arduino.jpg"  width="400" height="300">
 
     ### 1. Overall feature (main.ino, one glove)
     1. Senses high/low temporature 
@@ -34,6 +33,7 @@ Just put on the Smart Gloves and make a bluetooth connection with the android ap
     6. Bluetooth connection
     
     ### 2. Sign Language feature (flexsenor_read_and_send.ino & process_sign_language_speech_recognize.ino , the other glove)
+
     1. Sign Language (Recognize sign language and print on LCD monitor)
     2. Voice recognition
 
