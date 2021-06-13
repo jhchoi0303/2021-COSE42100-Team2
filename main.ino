@@ -106,6 +106,7 @@ void loop()
 { 
   String inputString = "";  
   while(bluetooth.available()){
+    //안드로이드 앱으로부터 수신기능
     inputString= bluetooth.readString();
   }
     
@@ -128,6 +129,12 @@ void loop()
       Serial.println(user);
       Serial.println(age);
       Serial.println(emergency);
+
+      //안드로이드 앱으로 송신. 받아들인 inputString을 그대로 송신은 가능.
+      // char* cString = (char*) malloc(sizeof(char)*(inputString.length() + 1));
+      // inputString.toCharArray(cString, inputString.length() + 1);
+      // bluetooth.write(cString);
+
       
       inputString = "";
   }
