@@ -192,19 +192,19 @@ void loop()
     }
     else if (digitalRead(SWITCH3) == LOW){
       //만약 emergency command 값이 지정되었을 때(bluetooth로 정보가 수신되었을때) 사용자가 앱을 통해 입력한 emergency command를 출력
-      if(!emergency.equals("")){
-        lcd.setCursor(0, 0);
-        lcd.print(emergency);
-        delay(200);  
-        }
-      else{
+      // if(!emergency.equals("")){
+      //   lcd.setCursor(0, 0);
+      //   lcd.print(emergency);
+      //   delay(200);  
+      //   }
+      // else{
         lcd.setCursor(0, 0);
         lcd.print("I'm Speechless disorder, Help me!");
         delay(200); 
         lcd.setCursor(0, 1);
         lcd.print("Help me!");
         delay(200); 
-      }
+      // }
     }
     delay(200);
     lcd.clear(); 
