@@ -109,6 +109,14 @@ void loop()
     //안드로이드 앱으로부터 수신기능
     inputString= bluetooth.readString();
   }
+  
+  //시리얼 보드에서 안드로이드 앱으로 송신기능.
+  //     if(Serial.available())
+  // {
+  //   char toSend = (char)Serial.read();
+  //   bluetooth.print(toSend);
+  // }
+
     
   if(!inputString.equals("")){
 
@@ -134,7 +142,6 @@ void loop()
       // char* cString = (char*) malloc(sizeof(char)*(inputString.length() + 1));
       // inputString.toCharArray(cString, inputString.length() + 1);
       // bluetooth.write(cString);
-
       
       inputString = "";
   }
