@@ -135,14 +135,13 @@ public class MainActivity extends AppCompatActivity {
                         }
                         break;
 
-                    case MESSAGE_READ:
-                        String arduinoMsg = msg.obj.toString(); // Read message from Arduino
-                        //textViewInfo.setText(arduinoMsg);
+                    // case MESSAGE_READ:
+                        // String arduinoMsg = msg.obj.toString(); // 아두이노로부터 메세지를 읽고
+                        //textViewInfo.setText(arduinoMsg); //해당 메세지를 앱 하단에 출력
+                        //callPhoneNumber(); //응급상황시 119 자동 전화 걸림
 
-                            callPhoneNumber();
 
-
-                        break;
+                       // break;
                 }
             }
         };
